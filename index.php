@@ -15,9 +15,9 @@
 
 <html>
 	<head>
-		
 		<title>To Do App</title>
-
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="script.js"></script>
 	</head>
 	<body>
 	
@@ -36,6 +36,8 @@
 <br />
 <input type="submit" />
 	</form>	
-	
+	<div id="log_container">
+		
+	</div>
 	</body>
 </html>

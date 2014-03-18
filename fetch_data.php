@@ -20,10 +20,12 @@ try {
     $sql = "SELECT * FROM tasks";
     foreach ($DBH->query($sql) as $row)
         {
-        print $row['task'] .' - '. $row['target_date'] . '<br />';
+          $rows[] = $row;
         }
-$result = $sql->fetchAll();        
-echo json_encode($result);
+$qryResult = array();
+	$qryResult['tasks'] = $rows;
+	echo json_encode($qryResult);
+
     /*** close the database connection ***/
     $DBH = null;
   
