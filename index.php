@@ -84,6 +84,6 @@
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="docs.min.js"></script>
-    <script src="gs_script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

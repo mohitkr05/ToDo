@@ -4,14 +4,14 @@ include 'connect_db.php';
 
 try{
     //write query
-    $query = "INSERT INTO tasks SET tasks = ?, target_date = ? ";
+    $query = "INSERT INTO tasks SET task = ?, target_date = ? ";
 
     //prepare query for excecution
     $stmt = $DBH->prepare($query);
 
     //bind the parameters
     //this is the first question mark
-    $stmt->bindParam(1, $_POST['tasks']);
+    $stmt->bindParam(1, $_POST['task']);
 
     //this is the second question mark
     $stmt->bindParam(2, $_POST['target_date']);

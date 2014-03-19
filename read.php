@@ -36,7 +36,7 @@ if($num>0){ //check if more than 0 record found
                 echo "<td>{$target_date}</td>";
                 echo "<td style='text-align:center;'>";
                     // add the record id here
-                    echo "<div class='taskId'>{$id}</div>";
+                    echo "<div id='task_id'>{$task_id}</div>";
                     
                     //we will use this links on next part of this post
                     echo "<button type='button' id='editBtn' class='btn btn-success'>Edit</button>";

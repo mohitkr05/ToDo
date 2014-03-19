@@ -12,7 +12,7 @@
             <td>Target Date</td>
             <td><input type="text" name="target_date" /></td>
         </tr>
-                <button type="button" id="viewTasks" class="btn btn-primary customBtn"> </button>
+                <input type='submit' value='Update' class='customBtn' />
                
             </td>
         </tr>

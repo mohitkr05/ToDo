@@ -4,17 +4,17 @@ try {
     
     //prepare query
     $query = "select 
-                id, task, target_date
+                task_id, task, target_date
             from 
                 tasks 
             where 
-                id = ? 
+                task_id = ? 
             limit 0,1";
             
     $stmt = $DBH->prepare( $query );
 
     //this is the first question mark
-    $stmt->bindParam(1, $_REQUEST['user_id']);
+    $stmt->bindParam(1, $_REQUEST['task_id']);
 
     //execute our query
     if($stmt->execute()){
@@ -23,7 +23,7 @@ try {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         //values to fill up our form
-        $id = $row['id'];
+        $task_id = $row['task_id'];
         $task = $row['task'];
         $target_date = $row['target_date'];
       
@@ -39,21 +39,21 @@ catch(PDOException $exception){
 }
 ?>
 <!--we have our html form here where new user information will be entered-->
-<form id='updateUserForm' action='#' method='post' border='0'>
+<form id='updateTaskForm' action='#' method='post' border='0'>
     <table>
         <tr>
             <td>Task</td>
             <td><input type='text' name='task' value='<?php echo $task; ?>' required /></td>
         </tr>
         <tr>
-            <td>Lastname</td>
+            <td>Target Date</td>
             <td><input type='text' name='target_date' value='<?php echo $target_date;  ?>' required /></td>
         </tr>
       
             <td></td>
             <td>
                 <!-- so that we could identify what record is to be updated -->
-                <input type='hidden' name='id' value='<?php echo $id ?>' />
+                <input type='hidden' name='task_id' value='<?php echo $task_id ?>' />
                 <input type='submit' value='Update' class='customBtn' />
                 
             </td>

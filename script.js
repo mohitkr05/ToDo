@@ -18,34 +18,35 @@ jQuery(document).ready(function(){
     });
 
     // clicking the EDIT button
-    $(document).on('click', '.editBtn', function(){ 
+    $(document).on('click', '#editBtn', function(){ 
     
-        var Task_id = $(this).closest('td').find('.TaskId').text();
-        console.log(Task_id);
+        var task_id = $(this).closest('td').find('#task_id').text();
+        console.log(task_id);
         
         // show a loader image
         $('#loaderImage').show();
 
         // read and show the records after 1 second
         // we use setTimeout just to show the image loading effect when you have a very fast server
-        // otherwise, you can just do: $('#pageContent').load('update_form.php?Task_id=" + Task_id + "', function(){ $('#loaderImage').hide(); });
-        setTimeout("$('#pageContent').load('update_form.php?Task_id=" + Task_id + "', function(){ $('#loaderImage').hide(); });",1000);
+        // otherwise, you can just do: $('#pageContent').load('update_form.php?task_id=" + task_id + "', function(){ $('#loaderImage').hide(); });
+        setTimeout("$('#pageContent').load('update_form.php?task_id=" + task_id + "', function(){ $('#loaderImage').hide(); });",1000);
         
     }); 
     
     
     // when clicking the DELETE button
-    $(document).on('click', '.deleteBtn', function(){ 
+    $(document).on('click', '#deleteBtn', function(){ 
         if(confirm('Are you sure?')){
         
             // get the id
-            var Task_id = $(this).closest('td').find('.TaskId').text();
+            var task_id = $(this).closest('td').find('#task_id').text();
             
             // trigger the delete file
-            $.post("delete.php", { id: Task_id })
+            $.post("delete.php", { task_id: task_id })
                 .done(function(data) {
                     // you can see your console to verify if record was deleted
                     console.log(data);
+                   
                     
                     $('#loaderImage').show();
                     
@@ -68,6 +69,8 @@ jQuery(document).ready(function(){
         $.post("create.php", $(this).serialize())
             .done(function(data) {
                 // 'data' is the text returned, you can do any conditions based on that
+                console.log(data);
+                   
                 showTasks();
             });
                 
@@ -84,6 +87,8 @@ jQuery(document).ready(function(){
         $.post("update.php", $(this).serialize())
             .done(function(data) {
                 // 'data' is the text returned, you can do any conditions based on that
+                console.log(data);
+                   
                 showTasks();
             });
                 

@@ -4,10 +4,9 @@ include 'connect_db.php';
 
 try {
 
-    $query = "DELETE FROM Tasks WHERE id = ?";
+    $query = 'DELETE FROM tasks WHERE task_id = ?';
     $stmt = $DBH->prepare($query);
-    $stmt->bindParam(1, $_POST['id']);
-    
+    $stmt->bindParam(1, $_POST['task_id']);
     if($stmt->execute()){
         echo "Task was deleted.";
     }else{
